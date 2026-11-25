@@ -2,8 +2,6 @@
 
 Invoice exception analysis that assigns every failed three-way match exactly one cause, validates the assignment against labelled cases, and ranks causes by cost.
 
-[![CI](https://github.com/SlateGitOrg/p2pexceptions/actions/workflows/ci.yml/badge.svg)](https://github.com/SlateGitOrg/p2pexceptions/actions/workflows/ci.yml)
-
 ## Why
 
 Invoices that fail three-way match (purchase order, goods receipt, invoice) are cleared by hand, and exception analyses often attribute them all to supplier data quality. The categories in such analyses tend to overlap: an invoice that is both short-delivered and mispriced lands in two buckets, the percentages add up to more than 100, and no single fix owns a bar on the chart. This project uses a mutually exclusive, exhaustive cause taxonomy and weights it by cost, so each bar maps to one costed remediation. The demo runs on synthetic data with seeded cause rates (about 18% of lines fail the match), so the numbers below illustrate the method and are not measured from a real ledger.
@@ -37,7 +35,7 @@ The generator plants each cause at a known rate and records the intended cause a
 Requires Python 3.11+. There are no third-party dependencies.
 
 ```bash
-git clone https://github.com/SlateGitOrg/p2pexceptions.git
+git clone https://github.com/PranitaG14/p2pexceptions.git
 cd p2pexceptions
 python -m unittest discover -s tests -v   # run the test suite
 python -m src.demo                        # generate data and print the report
@@ -100,10 +98,3 @@ docs/            architecture notes
 ## License
 
 MIT - see [LICENSE](LICENSE).
-
-## Maintainer
-
-Dev Bhatt maintains this project, with a focus on data solutions, analytics, risk indicators, controls, and automation. He has over 6 years of professional experience building automated pipelines, controls, and dashboards.
-
-- Email: [devbhattwork27@gmail.com](mailto:devbhattwork27@gmail.com)
-- LinkedIn: [linkedin.com/in/dev-bhatt27](https://linkedin.com/in/dev-bhatt27)
